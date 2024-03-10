@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   get 'users/edit'
   get 'users/show'
+  resources
   get 'books/index'
   get 'books/new'
   get 'books/edit'
