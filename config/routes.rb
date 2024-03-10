@@ -10,6 +10,16 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+  namespace :admin do
+    get 'comments/index'
+    get 'users/index'
+    get 'homes/top'
+  end
+  get 'users/edit'
+  get 'users/show'
+  get 'books/index'
+  get 'books/new'
+  get 'books/edit'
   root to: 'homes#top'
   get 'homes/about' => 'homes#about', as: 'about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
