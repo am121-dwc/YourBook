@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update]
-  resources :books, only: [:index, :new, :edit, :update, :create]
+  resources :books, only: [:index, :new, :edit, :update, :create, :show]
   root to: 'homes#about'
   get 'homes/about' => 'homes#about', as: 'about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

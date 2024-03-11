@@ -32,9 +32,11 @@ class BooksController < ApplicationController
       render 'index'
     end
   end
+  def show
+  end
 
   private
   def book_params
-    params.require(:book).permit(:title, :introduction)
+    params.require(:book).permit(:title, :introduction, :image)
   end
 end

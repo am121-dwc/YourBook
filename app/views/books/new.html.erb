@@ -1,2 +1,25 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<%= form_with model: Book.new, local:true do |f| %>
+  <div class="form-group mt-5">
+    <% if @book.profile_image.attached? %>
+      <%= image_tag @book.profile_image, size:"75x75" %>
+    <% else %>
+      <%= image_tag "no_image.jpg" %>
+    <% end %>
+    <%= f.label :image %>
+    <%= f.file_field :book_image, class: "form-control-file", accept: 'image/*' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.collection_select :tag_id, Tag.all, :id, :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+<% end %>

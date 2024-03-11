@@ -6,7 +6,11 @@
   <div class="row">
     <div class="col-lg-2">
       <!--ユーザー情報表示部分-->
-      <%= image_tag @user.profile_image, size: "100x100" %><br>
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image, size:"100x100" %>
+      <% else %>
+        <%= image_tag "no_image.jpg" %>
+      <% end %>
       <%= @user.introduction %>
       <br>
       <%= link_to "プロフィールの編集", edit_user_path(@user) %>
