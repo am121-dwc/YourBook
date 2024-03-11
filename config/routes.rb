@@ -16,8 +16,7 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
   get 'users/my_page'
-  get 'users/edit'
-  get 'users/show'
+  resources :users, only: [:edit, :show, :update]
   resources :books, only: [:index, :new, :edit, :update, :create]
   root to: 'homes#about'
   get 'homes/about' => 'homes#about', as: 'about'
