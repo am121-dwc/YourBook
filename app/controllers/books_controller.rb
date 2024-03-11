@@ -33,10 +33,12 @@ class BooksController < ApplicationController
     end
   end
   def show
+    @book = Book.find(params[:id])
+    @bookcomments = BookComment.all
   end
 
   private
   def book_params
-    params.require(:book).permit(:title, :introduction, :image)
+    params.require(:book).permit(:title, :introduction, :profile_image)
   end
 end
