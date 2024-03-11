@@ -8,4 +8,6 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = Book.new
   end
+  def my_page
+  end
 end
