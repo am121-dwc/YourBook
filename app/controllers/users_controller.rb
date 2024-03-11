@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user.id), notice: "Your profile has been updated."
+      redirect_to users_my_page_path, notice: "Your profile has been updated."
     else
       render :edit
     end
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @book = Book.new
   end
   def my_page
+    @user = current_user
   end
 
   private

@@ -1,10 +1,25 @@
 <h1 class="bg-info">ログイン後ページ(users_my_page)</h1>
-
+<div class="text-center mt-5">
+  <h1><%= @user.name %>さんのマイページ</h1>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-4 offset-lg-4 col-sm-10 offset-sm-1">
-      <%= current_user.name %>のマイページ
+    <div class="col-lg-2">
+      <!--ユーザー情報表示部分-->
+      <%= image_tag @user.profile_image, size: "100x100" %><br>
+      <%= @user.introduction %>
+      <br>
+      <%= link_to "プロフィールの編集", edit_user_path(@user) %>
     </div>
+    <div class="col-lg-8 text-center">
+      <!--カレンダー予定位置-->
+      !!カレンダー!!
+    </div>
+    <div class="col-lg-2">
+      <!--いいね一覧へのリンク-->
+      !!いいね一覧!!
+    </div>
+
   </div>
 </div>
 <div>
