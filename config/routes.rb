@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get 'users/index'
     get 'homes/top'
   end
+  get 'users/my_page'
   get 'users/edit'
   get 'users/show'
   resources :books, only: [:index, :new, :edit, :update, :create]
