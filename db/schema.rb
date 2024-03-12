@@ -82,8 +82,10 @@ ActiveRecord::Schema.define(version: 2024_03_11_054241) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "book_id", null: false
+    t.integer "book_comment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_comment_id"], name: "index_favorites_on_book_comment_id"
     t.index ["book_id"], name: "index_favorites_on_book_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
@@ -123,6 +125,7 @@ ActiveRecord::Schema.define(version: 2024_03_11_054241) do
   add_foreign_key "book_comments", "users"
   add_foreign_key "calendars", "books"
   add_foreign_key "calendars", "users"
+  add_foreign_key "favorites", "book_comments"
   add_foreign_key "favorites", "books"
   add_foreign_key "favorites", "users"
   add_foreign_key "taggings", "books"

@@ -17,7 +17,13 @@ Rails.application.routes.draw do
   end
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update]
-  resources :books, only: [:index, :new, :edit, :update, :create, :show]
+  resources :books, only: [:index, :new, :edit, :update, :create, :show] do
+    resources :favorites, only: [:create, :destroy]
+    resources :book_comments, only: [:create, :destroy] do
+      post '/favorites' => 'favorites#create_book_comment'
+      delete '/favorites' => 'favorites#destroy_book_comment'
+    end
+  end
   root to: 'homes#about'
   get 'homes/about' => 'homes#about', as: 'about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
