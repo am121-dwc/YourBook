@@ -1,0 +1,13 @@
+<% if book_comment.favorited_by?(current_user) %>
+  <p>
+    <%= link_to book_book_comment_favorites_path(book_id: book_comment.book_id, book_comment_id: book_comment.id), method: :delete, remote: true do %>
+    <i class="fa-solid fa-heart text-danger"><%= book_comment.favorites.count %></i>
+    <% end %>
+  </p>
+    <% else %>
+  <p>
+    <%= link_to book_book_comment_favorites_path(book_id: book_comment.book_id, book_comment_id: book_comment.id), method: :post, remote: true do %>
+    <i class="fa-solid fa-heart text-primary"><%= book_comment.favorites.count %></i>
+    <% end %>
+  </p>
+<% end %>
