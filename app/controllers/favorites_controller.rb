@@ -17,8 +17,7 @@ class FavoritesController < ApplicationController
     @book = @comment.book
     favorite = current_user.favorites.new(book_id: @book.id, book_comment_id: @comment.id)
     favorite.save
-    # 非同期化ができていないためhtmlでの処理です。
-    redirect_to request.referer
+    render :toggle
   end
 
   def destroy_book_comment
@@ -26,7 +25,6 @@ class FavoritesController < ApplicationController
     @book = @comment.book
     favorite = current_user.favorites.find_by(book_id: @book.id, book_comment_id: @comment.id)
     favorite.destroy
-    # 非同期化ができていないためhtmlでの処理です。
-    redirect_to request.referer
+    render :toggle
   end
 end
