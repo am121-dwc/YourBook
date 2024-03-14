@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 2024_03_11_054241) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "book_id", null: false
-    t.integer "book_comment_id", null: false
+    t.integer "user_id"
+    t.integer "book_id"
+    t.integer "book_comment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_comment_id"], name: "index_favorites_on_book_comment_id"
