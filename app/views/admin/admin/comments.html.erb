@@ -1,0 +1,25 @@
+<h1>comments</h1>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>Profile画像</th>
+      <th>Name</th>
+      <th>Comment</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= image_tag comment.user.get_profile_image, size:'50x50' %>
+        </td>
+        <td><%= comment.user.name %></td>
+        <td><%= comment.comment %></td>
+        <td>
+          <%= link_to "コメント削除", book_book_comment_path(id: comment.id, book_id: comment.book_id), method: :delete,  data: { confirm: 'コメントを削除しますか？' }, class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

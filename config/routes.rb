@@ -11,12 +11,12 @@ Rails.application.routes.draw do
     sessions: 'user/sessions'
   }
   namespace :admin do
-    get 'comments/index'
-    get 'users/index'
-    get 'homes/top'
+    get 'comments' => 'admin#comments'
+    get 'users' => 'admin#users'
+    root to: "admin#top"
   end
   get 'users/my_page'
-  resources :users, only: [:edit, :show, :update]
+  resources :users, only: [:edit, :show, :update, :destroy]
   resources :books, only: [:index, :new, :edit, :update, :create, :show] do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy] do

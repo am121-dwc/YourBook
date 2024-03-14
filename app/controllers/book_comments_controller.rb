@@ -11,6 +11,7 @@ class BookCommentsController < ApplicationController
     @book = Book.find(params[:book_id])
     comment = BookComment.find(params[:id])
     comment.destroy
+    redirect_to admin_comments_path
   end
 
   private

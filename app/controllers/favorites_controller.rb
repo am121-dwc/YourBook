@@ -16,7 +16,6 @@ class FavoritesController < ApplicationController
   end
   def create_book_comment
     @comment = BookComment.find(params[:book_comment_id])
-    @book = @comment.book
     favorite = current_user.favorites.new(book_comment_id: @comment.id)
     favorite.save
     render :toggle
@@ -24,7 +23,6 @@ class FavoritesController < ApplicationController
 
   def destroy_book_comment
     @comment = BookComment.find(params[:book_comment_id])
-    @book = @comment.book
     favorite = current_user.favorites.find_by(book_comment_id: @comment.id)
     favorite.destroy
     render :toggle
