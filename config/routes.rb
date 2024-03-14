@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update]
   resources :books, only: [:index, :new, :edit, :update, :create, :show] do
-    resources :favorites, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy] do
       post '/favorites' => 'favorites#create_book_comment'
       delete '/favorites' => 'favorites#destroy_book_comment'

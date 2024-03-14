@@ -11,6 +11,7 @@
     <div class="col-lg-6 p-3 col-md-5 p-3 text-center">
       <p>title: <%= @book.title %></p><br>
       <p>introduction: <%= @book.introduction %><p>
+      <p><%= render "favorites/favorite-btn", book: @book %></p>
     </div>
   </div>
 </div>
