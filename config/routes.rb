@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+  get "search" => "searches#search"
   namespace :admin do
     get 'comments' => 'admin#comments'
     get 'users' => 'admin#users'
