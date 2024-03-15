@@ -54,6 +54,11 @@ class BooksController < ApplicationController
     # 検索されたタグに紐づく投稿を表示
     @book = @tag.books
   end
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to request.referer
+  end
 
   private
   def book_params

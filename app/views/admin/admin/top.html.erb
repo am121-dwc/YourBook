@@ -10,6 +10,16 @@
       <%= link_to 'コメント一覧', admin_comments_path, class:"form-group btn btn-secondary form-control"%>
     </div>
   </div>
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-10 offset-1">
+      <%= link_to '本一覧', admin_books_path, class:"form-group btn btn-secondary form-control"%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-10 offset-1">
+      <%= link_to 'タグ一覧', admin_tags_path, class:"form-group btn btn-secondary form-control"%>
+    </div>
+  </div>
 </div>
 <div>
   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-sm btn-danger" %>

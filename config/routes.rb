@@ -15,11 +15,14 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'comments' => 'admin#comments'
     get 'users' => 'admin#users'
+    get 'tags' => 'admin#tags'
+    get 'books' => 'admin#books'
     root to: "admin#top"
   end
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update, :destroy]
-  resources :books, only: [:index, :new, :edit, :update, :create, :show] do
+  resources :tags, only: [:destroy]
+  resources :books, only: [:index, :new, :edit, :update, :create, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy] do
       post '/favorites' => 'favorites#create_book_comment'

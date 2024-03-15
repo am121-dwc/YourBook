@@ -7,6 +7,6 @@ class CreateTaggings < ActiveRecord::Migration[6.1]
       t.timestamps
     end
     # 同じタグは2回保存できない
-    add_index :book_tags, [:book_id,:tag_id],unique: true
+    add_index :taggings, [:book_id,:tag_id],unique: true
   end
 end
