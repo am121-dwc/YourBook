@@ -10,4 +10,12 @@ class Admin::AdminController < ApplicationController
   def users
     @users = User.all
   end
+  
+  def books
+    @books = Book.all
+  end
+  
+  def tags
+    @tags = Tag.all
+  end
 end

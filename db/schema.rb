@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2024_03_11_054241) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.text "title"
-    t.text "introduction"
+    t.text "title", null: false
+    t.text "introduction", null: false
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2024_03_11_054241) do
     t.integer "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id", "tag_id"], name: "index_taggings_on_book_id_and_tag_id", unique: true
     t.index ["book_id"], name: "index_taggings_on_book_id"
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
@@ -103,6 +104,7 @@ ActiveRecord::Schema.define(version: 2024_03_11_054241) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
