@@ -3,3 +3,11 @@
 <%= link_to new_user_registration_path do %>
 Sign_in
 <% end %>
+<br>
+<%= link_to 'ゲストログイン (機能をお試しいただけます)', users_guest_sign_in_path, method: :post %>
+<br>
+<% if user_signed_in? %>
+  <p>online</p>
+  <% else %>
+  <p>offline</p>
+<% end %>
