@@ -6,7 +6,6 @@ class HomesController < ApplicationController
     @books = Book.includes(:favorites).sort_by { |book| -book.favorites.where(created_at: from...to).count }
     @book = Book.new
   end
-
   def about
   end
 end

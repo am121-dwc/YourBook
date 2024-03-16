@@ -11,6 +11,11 @@ class User < ApplicationRecord
   def get_profile_image()
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', name: 'ゲスト') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
   # 検索方法
   def self.search_for(content, method)
     if method == 'perfect'
