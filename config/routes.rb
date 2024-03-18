@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get 'books' => 'admin#books'
     root to: "admin#top"
   end
-  resources :events, only: [:create]
+  resources :events, only: [:create, :index]
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update, :destroy]
   resources :tags, only: [:destroy]

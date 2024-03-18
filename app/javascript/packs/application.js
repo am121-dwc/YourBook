@@ -84,6 +84,16 @@ document.addEventListener('turbolinks:load', function() {
         xhr.send(data);
       }
     },
+    editable: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      // 情報の取得(json経由)
+      events: '/events.json',
+
+
+
+
+
+
 
   });
   calendar.render();

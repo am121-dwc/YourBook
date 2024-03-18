@@ -2,11 +2,15 @@ class EventsController < ApplicationController
   def create
     # 受け取ったイベント情報をUserに紐付けて保存する処理を実装します
     @event = Event.new(event_params)
-   if @event.save
+    @event.user_id = current_user.id
+   if @event.save!
     redirect_to request.referer
    else
-    redirect_to books_path
+    redirect_to book
    end
+  end
+  def index
+    @events = current_user.events
   end
   private
   def event_params
