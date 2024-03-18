@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
   def my_page
     @user = current_user
+    @event = Event.new
   end
   def destroy
     user = User.find(params[:id])
