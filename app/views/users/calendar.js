@@ -1,32 +1,3 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//= require jquery
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-
-import "jquery";
-import "popper.js";
-import "bootstrap";
-import "../stylesheets/application";
-
-Rails.start();
-Turbolinks.start();
-ActiveStorage.start();
-require("jquery");
-import { Calendar } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-// AjaxリクエストにCSRFトークンを含める関数
-function addCsrfToken(xhr) {
-  xhr.setRequestHeader('X-CSRF-Token', csrfToken);
-}
-
 document.addEventListener('turbolinks:load', function() {
   var calendarEl = document.getElementById('calendar');
   var calendar = new Calendar(calendarEl, {
@@ -78,23 +49,12 @@ document.addEventListener('turbolinks:load', function() {
         addCsrfToken(xhr); // CSRFトークンをリクエストヘッダに追加
         var data = JSON.stringify({
           title: eventName,
-          start: info.start,
-          end: info.end,
+          start_time: info.start,
+          end_time: info.end,
         });
         xhr.send(data);
       }
     },
-    editable: true,
-      dayMaxEvents: true, // allow "more" link when too many events
-      // 情報の取得(json経由)
-      events: '/events.json',
-
-
-
-
-
-
-
   });
   calendar.render();
 });

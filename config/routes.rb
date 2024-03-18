@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     get 'books' => 'admin#books'
     root to: "admin#top"
   end
+  resources :events, only: [:create, :index]
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update, :destroy]
   resources :tags, only: [:destroy]
