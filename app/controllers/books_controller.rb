@@ -20,7 +20,7 @@ class BooksController < ApplicationController
       @book.save_tags(tag_list)
       redirect_to book_path(@book), notice: "Book was updated."
     else
-      flash.now[:notice] = "Book was not updated."
+      flash.now[:alert] = "Book was not updated."
       reuest.referer
     end
   end
@@ -33,11 +33,10 @@ class BooksController < ApplicationController
     tag_list = params[:book][:name].split(',')
     if @book.save
       @book.save_tags(tag_list)
-      redirect_to book_path(@book), notice: "Book was created."
+      redirect_to book_path(@book), notice: "本の作成に成功しました"
     else
-      flash.now[:notice] = "Book was not created."
-      @books = Book.all
-      render 'index'
+      flash.now[:alert] = "本の作成に失敗しました。タイトルと紹介文を空にする事はできません。また、紹介文は200文字までしか登録できません。"
+      render 'new'
     end
   end
   def show

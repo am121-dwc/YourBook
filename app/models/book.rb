@@ -1,11 +1,25 @@
 class Book < ApplicationRecord
+  # before_validation :delete_book_if_title_blank
+  # before_validation :delete_book_if_introduction_blank
   has_many :book_comments, dependent: :destroy
-  has_many :calendars
-  has_many :favorites
+  has_many :calendars, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   belongs_to :user
+  validates :title, presence:true
+  validates :introduction, presence:true, length:{maximum:200}
+  # バリデーションを設定すると作成時エラーとなるため作成後に削除する処理
+  # def delete_book_if_title_blank
+  #   self.mark_for_destruction if title.blank?
+  # end
+  # 上記の処理をintroductionにも適用
+  # def delete_book_if_introduction_blank
+  #   self.mark_for_destruction if introduction.blank?
+  # end
+
+
   # タグ付け
   has_many :taggings, dependent: :destroy
-  has_many :tags, through: :taggings
+  has_many :tags, through: :taggings, dependent: :destroy
   def save_tags(tags)
     # タグが存在していれば、タグの名前を配列として全て取得
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
