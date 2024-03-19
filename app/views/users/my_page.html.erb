@@ -11,16 +11,20 @@
       <% else %>
         <%= image_tag "no_image.jpg" %>
       <% end %>
+      <br>
+      紹介文
       <%= @user.introduction %>
       <br>
-      <%= link_to "プロフィールの編集", edit_user_path(@user) %>
+      <%= link_to "プロフィール編集", edit_user_path(@user), class:"btn btn-info mt-5" %>
+      <br>
+      <%= link_to "いいねした本一覧", favorites_path(@user.id), class:"btn btn-secondary my-5" %>
     </div>
     <div class="col-lg-8 text-center">
       <div id='calendar',></div>
     </div>
     <div class="col-lg-2">
       <!--いいね一覧へのリンク-->
-      
+
     </div>
 
   </div>
