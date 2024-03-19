@@ -37,7 +37,7 @@
       <% @records.each do |record| %>
         <tr>
           <td><%= link_to (record.user) do %>
-            <%= image_tag record.user.profile_image, size:'50x50' %>
+            <%= image_tag record.user.get_profile_image, size:'50x50' %>
             <% end %>
           </td>
           <td><%= link_to record.title,record %></td>
