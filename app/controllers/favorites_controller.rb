@@ -27,4 +27,7 @@ class FavoritesController < ApplicationController
     favorite.destroy
     render :toggle
   end
+  def index
+    @favorites = Favorite.where(user_id: current_user)
+  end
 end

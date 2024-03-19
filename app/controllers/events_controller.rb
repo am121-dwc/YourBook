@@ -3,10 +3,8 @@ class EventsController < ApplicationController
     # 受け取ったイベント情報をUserに紐付けて保存する処理を実装します
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-   if @event.save!
+    @event.save!
     redirect_to request.referer
-   else
-    redirect_to book
    end
   end
   def index
