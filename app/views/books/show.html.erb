@@ -1,0 +1,34 @@
+<!-- タグリスト -->
+  <% @book_tags.each do |tag| %>
+    <i class="fa-sharp fa-solid fa-tag"></i>
+    <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
+  <% end %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <!--画像が設定されてなければデフォルトのイメージを表示-->
+      <% if @book.profile_image.attached? %>
+        <%= image_tag @book.profile_image, size:"100x100" %>
+      <% else %>
+        <%= image_tag "no_image.jpg" %>
+      <% end %>
+    </div>
+    <div class="col-lg-6 p-3 col-md-5 p-3 text-center">
+      <p>title: <%= @book.title %></p><br>
+      <p>introduction: <%= @book.introduction %><p>
+      <p><%= render "favorites/favorite-btn", book: @book %></p>
+    </div>
+  </div>
+</div>
+<div class="container w-75">
+  <div class="row">
+    <!--コメント表示-->
+    <div id="comment_index">
+      <%= render "book_comments/index", book: @book, book_comment: @book_comment %>
+    </div>
+  </div>
+  <div class="row">
+    <!--コメント入力フォーム-->
+    <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+  </div>
+</div>
