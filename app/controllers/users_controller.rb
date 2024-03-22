@@ -19,10 +19,12 @@ class UsersController < ApplicationController
   def my_page
     @user = current_user
     @event = Event.new
-    # いいね数による並び替え
-    to = Time.current.at_end_of_day
-    from = (to - 6.day).at_beginning_of_day
-    @books = Book.includes(:favorites).sort_by { |book| -book.favorites.where(created_at: from...to).count }
+    # 一週間での期間内いいね数による並び替え
+    # to = Time.current.at_end_of_day
+    # from = (to - 6.day).at_beginning_of_day
+    # @books = Book.includes(:favorites).sort_by { |book| -book.favorites.where(created_at: from...to).count }
+    # いいね順に並び替え
+    @books = Book.includes(:favorites).sort_by { |book| -book.favorites.count }
   end
   def destroy
     user = User.find(params[:id])
