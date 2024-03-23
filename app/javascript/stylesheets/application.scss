@@ -1,10 +1,13 @@
 @use '~bootstrap/scss/bootstrap';
 
-
+header, footer{
+  background-color: #FF9D4C;
+}
 body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  background-color: #FFE5D2;
 }
 main {
   flex: 1;
@@ -25,4 +28,52 @@ main {
   background-color: #ffd4d1;
   color: #930403;
   border: solid 1px #930403;
+}
+
+
+
+// Glassmorphism
+// .basic {
+//   position: absolute;
+//   right: -200px;
+//   top: -200px;
+//   margin: 0 40px 40px 0;
+//   width: 100px;
+//   height: 100px;
+//   background: rgba( 255, 255, 255, 0.35 );
+//   border-radius: 10px;
+//   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+//   position: relative;
+// }
+.blur {
+    position: absolute;
+    left: 20px;
+    // top: 72px;
+    top: 200px;
+    right: -200px;
+    width: 800px;
+    height: 70px;
+    background: rgba( 254, 193, 193, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #D8BFD8;
+    font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+
+}
+.back{
+    background: white;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-picture{
+  max-width: 100%;
+}
+.head{
+  font-family: 'Sawarabi Mincho', 'Sawarabi Mincho', 'M PLUS Rounded 1c'
 }

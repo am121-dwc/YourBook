@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     # @books = Book.includes(:favorites).sort_by { |book| -book.favorites.where(created_at: from...to).count }
     # いいね順に並び替え
     @books = Book.includes(:favorites).sort_by { |book| -book.favorites.count }
+    @new_books = Book.all.order(created_at: :desc)
   end
   def destroy
     user = User.find(params[:id])
