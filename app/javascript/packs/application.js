@@ -39,11 +39,14 @@ document.addEventListener('turbolinks:load', function() {
         nextYear: '>>',
         today:    '今日',
         month:    'カレンダー',
+        week:     '週',
+        day:      '日',
+        listMonth: '今月のToDo',
+        listDay: '今日のToDo'
     },
 
     headerToolbar: {
         left: 'prev,next',
-        center: 'title',
     },
     navLinks: true,
     selectable: true,

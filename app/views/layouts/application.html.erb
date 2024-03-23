@@ -17,9 +17,11 @@
     <div class="d-flex justify-content-center mb-2 mt-2">
       <!--<%#= render "searches/form" %>-->
     </div>
-    <% flash.each do |message_type, message| %>
-      <div class="flash-message <%= message_type %>"><%= message %></div>
-    <% end %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
     <main>
       <%= yield %>
     </main>
