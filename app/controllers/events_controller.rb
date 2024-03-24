@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   def create
     # 受け取ったイベント情報をUserに紐付けて保存する処理を実装します
     @event = Event.new(event_params)
