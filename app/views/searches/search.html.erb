@@ -13,7 +13,7 @@
     <tbody>
       <% @records.each do |record| %>
         <tr>
-          <td><%= image_tag record.profile_image, size: '50x50' %></td>
+          <td><%= image_tag record.get_profile_image, size: '50x50' %></td>
           <td><%= record.name %></td>
           <td><%= link_to 'Show', record %></td>
         </tr>
