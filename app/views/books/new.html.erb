@@ -1,24 +1,26 @@
-<%= form_with model: Book.new, local:true do |f| %>
-  <label>タグ(,で区切ると複数タグ登録できます)</label>
-  <%= f.text_field :name, value: @tag_list, class: 'form-control' %>
-  <div class="form-group mt-5">
-    <% if @book.profile_image.attached? %>
-      <%= image_tag @book.profile_image, size:"75x75" %>
-    <% else %>
-      <%= image_tag "no_image.jpg" %>
-    <% end %>
-    <%= f.label :image %>
-    <%= f.file_field :profile_image, class: "form-control-file", accept: 'image/*' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :introduction %>
-    <%= f.text_area :introduction, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
-  </div>
-<% end %>
+<div class="container mt-3">
+  <%= form_with model: Book.new, local:true do |f| %>
+    <label>タグ(,で区切ると複数タグ登録できます)</label>
+    <%= f.text_field :name, value: @tag_list, class: 'form-control' %>
+    <div class="form-group mt-5">
+      <% if @book.profile_image.attached? %>
+        <%= image_tag @book.profile_image, size:"75x75" %>
+      <% else %>
+        <%= image_tag "no_image.jpg" %>
+      <% end %>
+      <%= f.label :image %>
+      <%= f.file_field :profile_image, class: "form-control-file", accept: 'image/*' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :introduction %>
+      <%= f.text_area :introduction, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-success' %>
+    </div>
+  <% end %>
+</div>

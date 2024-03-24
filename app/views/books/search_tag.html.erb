@@ -1,35 +1,37 @@
-<h2>タグが<%=@tag.name%>の投稿一覧</h2>
+<div class="container ml-5 mt-3">
+  <h2>タグが<%=@tag.name%>の投稿一覧</h2>
 
-<!--タグリスト-->
-<% @tag_list.each do |list|%>
-  <i class="fa-sharp fa-solid fa-tag"></i>
-  <%=link_to list.name,search_tag_path(tag_id: list.id) %>
-  <%="(#{list.books.count})" %>
+  <!--タグリスト-->
+  <% @tag_list.each do |list|%>
+    <i class="fa-sharp fa-solid fa-tag"></i>
+    <%=link_to list.name,search_tag_path(tag_id: list.id) %>
+    <%="(#{list.books.count})" %>
 
-<% end %>
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-    <th>image</th>
-      <th>title</th>
-      <th>introduction</th>
-      <th>good</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @book.each do |book| %>
+  <% end %>
+  <table class='table table-hover table-inverse'>
+    <thead>
       <tr>
-        <td>
-          <%= link_to (book.user) do %>
-          <%= image_tag book.user.get_profile_image, size:'50x50' %>
-          <% end %>
-        </td>
-        <td><%= link_to book.title,book %></td>
-        <td><%= book.introduction %></td>
-        <td id="favorite_btn_<%= book.id %>">
-          <%= render "favorites/favorite-btn", book: book %>
-        </td>
+      <th>image</th>
+        <th>title</th>
+        <th>introduction</th>
+        <th>good</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @book.each do |book| %>
+        <tr>
+          <td>
+            <%= link_to (book.user) do %>
+            <%= image_tag book.user.get_profile_image, size:'50x50' %>
+            <% end %>
+          </td>
+          <td><%= link_to book.title,book %></td>
+          <td><%= book.introduction %></td>
+          <td id="favorite_btn_<%= book.id %>">
+            <%= render "favorites/favorite-btn", book: book %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</divs>

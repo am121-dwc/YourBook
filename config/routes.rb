@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :events, only: [:create, :index]
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update, :destroy]
-  resources :tags, only: [:destroy]
+  resources :tags, only: [:destroy, :index]
   resources :books, only: [:index, :new, :edit, :update, :create, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy] do
