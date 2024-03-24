@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @favorites.each do |favorite, 5| %>
+    <% @favorites.each do |favorite| %>
       <% if favorite.book.present? %>
         <tr>
           <td>
@@ -17,7 +17,9 @@
             <% end %>
           </td>
           <td>
-            <%= link_to favorite.book.title %>
+            <%= link_to book_path(favorite) do %>
+              <%= favorite.book.title %>
+            <% end %>
           </td>
           <td>
             <%= favorite.book.introduction %>

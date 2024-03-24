@@ -47,8 +47,6 @@ document.addEventListener('turbolinks:load', function() {
 
     headerToolbar: {
         left: 'prev,next',
-        center: 'title',
-        right: 'dayGridMonth,listMonth,listDay',
     },
     navLinks: true,
     selectable: true,

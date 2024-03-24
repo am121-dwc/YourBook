@@ -12,22 +12,27 @@
       <% else %>
         <%= image_tag "no_image.jpg" %>
       <% end %>
-    </div>
-    <div class="col-lg-6 p-3 col-md-5 p-3 text-center">
-      <p>title: <%= @book.title %></p><br>
-      <p>introduction: <%= @book.introduction %><p>
+      <br>
       <p><%= render "favorites/favorite-btn", book: @book %></p>
+    </div>
+    <div class="col-lg-6 p-3 col-md-5 p-3 text-left">
+      <p>title: <%= @book.title %></p>
+      <br>
+      <p>introduction: <%= @book.introduction %><p>
     </div>
   </div>
 </div>
-<div class="container w-75">
+<div class="container">
   <div class="row">
-    <!--コメント表示-->
-    <div id="comment_index">
-      <%= render "book_comments/index", book: @book, book_comment: @book_comment %>
+    <div class="col-lg-12">
+      <!--コメント表示-->
+      <div id="comment_index">
+        <%= render "book_comments/index", book: @book, book_comment: @book_comment %>
+      </div>
     </div>
   </div>
   <div class="row">
+    <div class="col-lg-12">
     <!--コメント入力フォーム-->
     <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
   </div>
