@@ -12,11 +12,17 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     @tag_list = @book.tags.pluck(:name).join(',')
+    unless @book.user.id == current_user.id
+      redirect_to books_path
+    end
   end
 
   def update
     @book = Book.find(params[:id])
     tag_list = params[:book][:name].split(',')
+    unless @book.user.id == current_user.id
+      redirect_to books_path
+    end
     if @book.update(book_params)
       @book.save_tags(tag_list)
       redirect_to book_path(@book), notice: "Book was updated."
