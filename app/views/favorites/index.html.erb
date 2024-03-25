@@ -1,33 +1,35 @@
-<caption>いいね一覧</caption>
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th>Book_image</th>
-      <th>title</th>
-      <th>introduction</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @favorites.each do |favorite| %>
-      <% if favorite.book.present? %>
-        <tr>
-          <td>
-            <%= link_to favorite.book do %>
-            <%= image_tag favorite.book.get_profile_image, size:'50x50' %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to book_path(favorite) do %>
-              <%= favorite.book.title %>
-            <% end %>
-          </td>
-          <td>
-            <%= favorite.book.introduction %>
-          </td>
-        </tr>
-      <% else %>
-      <% end %>
+<div class="container mt-5">
+  <caption>いいね一覧</caption>
+  <table class='table table-hover table-inverse'>
+    <thead>
+      <tr>
+        <th>Book_image</th>
+        <th>title</th>
+        <th>introduction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @favorites.each do |favorite| %>
+        <% if favorite.book.present? %>
+          <tr>
+            <td>
+              <%= link_to favorite.book do %>
+              <%= image_tag favorite.book.get_profile_image, size:'50x50' %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(favorite) do %>
+                <%= favorite.book.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= favorite.book.introduction %>
+            </td>
+          </tr>
+        <% else %>
+        <% end %>
 
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+</div>
