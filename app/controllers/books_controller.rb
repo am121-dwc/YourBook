@@ -38,13 +38,15 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     # 入力された値を.で区切って配列に格納
     tag_list = params[:book][:name].split(',')
-    if @book.save
+    @book.save
+    # if @book.save
+    # if文による処理はrequired:trueの処理により不要になったためコメントアウトを行っております。
       @book.save_tags(tag_list)
       redirect_to book_path(@book), notice: "本の作成に成功しました"
-    else
-      flash.now[:alert] = "本の作成に失敗しました。タイトルと紹介文を空にする事はできません。また、紹介文は200文字までしか登録できません。"
-      render 'new'
-    end
+    # else
+    #   flash.now[:alert] = "本の作成に失敗しました。タイトルと紹介文を空にする事はできません。また、紹介文は200文字までしか登録できません。"
+    #   render 'new'
+    # end
   end
   def show
    @book = Book.find(params[:id])
