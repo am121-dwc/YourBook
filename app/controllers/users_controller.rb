@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to root_path
+    end
   end
   def update
     @user = User.find(params[:id])
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to root_path
+    end
     if @user.update(user_params)
       redirect_to users_my_page_path, notice: "Your profile has been updated."
     else
