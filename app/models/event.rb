@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
 
-  default_scope -> { order(start_time: :asc) }
+  default_scope -> { order(start: :asc) }
 
   validate  :start_end_check
 
