@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:destroy]
   def destroy
     tag = Tag.find(params[:id])
     tag.destroy
