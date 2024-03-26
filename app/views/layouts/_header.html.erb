@@ -12,6 +12,11 @@
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
           <li>
+            <%= link_to admin_root_path,class: 'nav-link text-light' do %>
+              <i class="fa-solid fa-person-shelter"></i>Admin top
+            <% end %>
+          </li>
+          <li>
             <%= link_to admin_users_path,class: 'nav-link text-light' do %>
               <i class="fas fa-users"></i>Users
             <% end %>

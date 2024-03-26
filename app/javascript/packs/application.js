@@ -44,9 +44,9 @@ document.addEventListener('turbolinks:load', function() {
         listMonth: '今月のToDo',
         listDay: '今日のToDo'
     },
-
     headerToolbar: {
         left: 'prev,next',
+        center: 'title'
     },
     navLinks: true,
     selectable: true,
