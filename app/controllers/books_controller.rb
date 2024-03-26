@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:destroy]
   def index
     @books = Book.all
     @tag_list = Tag.all

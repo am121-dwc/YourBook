@@ -1,5 +1,5 @@
 class BookCommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:destroy]
   def create
     @book = Book.find(params[:book_id])
     book = Book.find(params[:book_id])
