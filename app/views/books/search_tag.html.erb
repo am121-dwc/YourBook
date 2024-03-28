@@ -21,9 +21,7 @@
       <% @book.each do |book| %>
         <tr>
           <td>
-            <%= link_to (book.user) do %>
-            <%= image_tag book.user.get_profile_image, size:'50x50' %>
-            <% end %>
+            <%= image_tag book.get_profile_image, size:'75x75' %>
           </td>
           <td><%= link_to book.title,book %></td>
           <td><%= book.introduction %></td>
