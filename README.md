@@ -18,9 +18,15 @@
 - 読書を行う人の意見を見る
 ​
 ## 設計書
--
+- ER図です。https://drive.google.com/file/d/118NHgv-DBJ_kc57EI6t6gxK388YY7Ll_/view?usp=sharing
 ​
 ## 開発環境
+<img src="https://img.shields.io/badge/-Rails-CC0000.svg?logo=rails&style=plastic">
+<img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=plastic">
+<img src="https://img.shields.io/badge/-Linux-FCC624.svg?logo=linux&style=plastic">
+<img src="https://img.shields.io/badge/-Javascript-F7DF1E.svg?logo=javascript&style=plastic">
+<img src="https://img.shields.io/badge/-Mysql-4479A1.svg?logo=mysql&style=plastic">
+<img src="https://img.shields.io/badge/-Jquery-0769AD.svg?logo=jquery&style=plastic">
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
