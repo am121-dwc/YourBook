@@ -36,11 +36,6 @@ class UsersController < ApplicationController
     @books = Book.includes(:favorites).sort_by { |book| -book.favorites.count }
     @new_books = Book.all.order(created_at: :desc)
   end
-  def destroy
-    user = User.find(params[:id])
-    user.destroy
-    redirect_to admin_users_path
-  end
 
   private
   def user_params

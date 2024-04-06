@@ -23,7 +23,7 @@
           <% end %>
         </td>
         <td>
-          <%= link_to "退会処理", user_path(user), method: :delete,  data: { confirm: '退会処理を実行しますか？' }, class: "btn btn-sm btn-danger" %>
+          <%= link_to "退会処理", admin_path(user), method: :delete,  data: { confirm: '退会処理を実行しますか？' }, class: "btn btn-sm btn-danger" %>
         </td>
       </tr>
     <% end %>

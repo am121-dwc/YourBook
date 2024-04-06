@@ -7,7 +7,8 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def destroy
-    user = user.find(params[:id])
+    user = User.find(params[:id])
     user.destroy
+    redirect_to admin_users_path
   end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'events/new'
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
-
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
@@ -18,16 +18,15 @@ Rails.application.routes.draw do
   get "search_tag" => "books#search_tag"
   namespace :admin do
     get 'comments' => 'admin#comments'
-    resources :users, only: [:index, :destroy]
+    get 'users' => 'users#index'
+    delete 'user/:id' => 'users#destroy'
     get 'tags' => 'admin#tags'
     get 'books' => 'admin#books'
     root to: "admin#top"
   end
-  get "favorites" => "favorites#index"
-  resources :events, only: [:create, :index]
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update, :destroy]
-  resources :tags, only: [:destroy, :index]
+  resources :tags, only: [:destroy]
   resources :books, only: [:index, :new, :edit, :update, :create, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy] do
