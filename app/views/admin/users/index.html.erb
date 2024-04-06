@@ -1,2 +1,31 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<h1>users</h1>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>Profile</th>
+      <th>Name</th>
+      <th>introduction</th>
+      <th>退会処理</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= image_tag user.get_profile_image, size:'50x50' %>
+        </td>
+        <td><%= user.name %></td>
+        <td>
+          <% if user.introduction.nil? %>
+            <%= %>
+          <% else %>
+            <%= user.introduction %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "退会処理", admin_path(user), method: :delete,  data: { confirm: '退会処理を実行しますか？' }, class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
