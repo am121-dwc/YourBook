@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "search_tag" => "books#search_tag"
   namespace :admin do
     get 'comments' => 'admin#comments'
-    get 'users' => 'admin#users'
+    resources :users, only: [:index, :destroy]
     get 'tags' => 'admin#tags'
     get 'books' => 'admin#books'
     root to: "admin#top"

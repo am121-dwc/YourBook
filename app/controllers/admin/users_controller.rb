@@ -8,6 +8,6 @@ class Admin::UsersController < ApplicationController
   end
   def destroy
     user = user.find(params[:id])
-    comment.destroy
+    user.destroy
   end
 end

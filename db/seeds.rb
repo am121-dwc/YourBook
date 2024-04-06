@@ -45,3 +45,5 @@
 #     }
 #   ]
 # )
+require_relative 'seeds/users.rb'
+require_relative 'seeds/books.rb'
