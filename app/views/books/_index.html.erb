@@ -10,7 +10,9 @@
         <% else %>
           <th>good</th>
         <% end %>
+        <th><!--本の作成者なら削除ボタンを表示するスペース--></th>
       </tr>
+
     </thead>
     <tbody>
       <% books.each do |book| %>
@@ -42,6 +44,8 @@
           <td>
             <!--本は管理者のみ削除可能-->
             <% if admin_signed_in? %>
+              <%= link_to "削除する", admin_book_path(book), method: :delete, data: { confirm: 'この本を削除しますか？' }, class:"btn btn-danger" %>
+            <% elsif book.user_id = current_user.id%>
               <%= link_to "削除する", book_path(book), method: :delete, data: { confirm: 'この本を削除しますか？' }, class:"btn btn-danger" %>
             <% else %>
               <p><!--表示無し--></p>

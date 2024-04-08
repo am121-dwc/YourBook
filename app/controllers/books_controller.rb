@@ -64,8 +64,13 @@ class BooksController < ApplicationController
   end
   def destroy
     book = Book.find(params[:id])
-    book.destroy
-    redirect_to request.referer
+    if book.user_id = current_user.id
+       book.destroy
+       redirect_to books_path
+    else
+       flash.now[:notice] = "他者の投稿を削除する事はできません。"
+       redirect_to users_my_page_path
+    end
   end
 
   private

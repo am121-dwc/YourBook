@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     delete 'user/:id' => 'users#destroy'
     get 'tags' => 'admin#tags'
     get 'books' => 'admin#books'
+    delete 'book/:id' => 'books#destroy', as: 'book'
     root to: "admin#top"
   end
   get 'favorites' => 'favorites#index'
