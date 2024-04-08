@@ -15,12 +15,22 @@
     <tbody>
       <% books.each do |book| %>
         <tr>
+          <% if admin_signed_in? %>
+          <td>
+            <%= image_tag book.get_profile_image, size:'50x50' %>
+          </td>
+          <% else %>
           <td>
             <%= link_to (book.user) do %>
             <%= image_tag book.get_profile_image, size:'50x50' %>
             <% end %>
           </td>
-          <td><%= link_to book.title,book %></td>
+          <% end %>
+          <% if admin_signed_in? %>
+            <td><%=  book.title %></td>
+          <% else %>
+            <td><%= link_to book.title,book %></td>
+          <% end %>
           <td><%= book.introduction %></td>
           <% if admin_signed_in? %>
             <!--処理なし-->

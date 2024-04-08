@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
-
   private
   # ログインする際に名前も許可
   def configure_permitted_parameters

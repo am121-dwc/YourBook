@@ -24,9 +24,11 @@ Rails.application.routes.draw do
     get 'books' => 'admin#books'
     root to: "admin#top"
   end
+  get 'favorites' => 'favorites#index'
+  resources :events, only: [:create, :index]
   get 'users/my_page'
   resources :users, only: [:edit, :show, :update, :destroy]
-  resources :tags, only: [:destroy]
+  resources :tags, only: [:index, :destroy]
   resources :books, only: [:index, :new, :edit, :update, :create, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy] do

@@ -29,6 +29,6 @@ class FavoritesController < ApplicationController
     render :toggle
   end
   def index
-    @favorites = Favorite.where(user_id: current_user)
+    @favorites = Favorite.where(user_id: current_user).where.not(book_id: nil)
   end
 end
