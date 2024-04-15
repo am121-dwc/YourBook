@@ -21,6 +21,11 @@
       <p>introduction: <%= @book.introduction %><p>
     </div>
   </div>
+  <% if @book.user_id == current_user.id %>
+    <%= link_to "本を編集する", edit_book_path(@book), class:"btn btn-info btn-sm" %>
+  <% else %>
+    <!--none-->
+  <% end %>
 </div>
 <div class="container">
   <div class="row">
